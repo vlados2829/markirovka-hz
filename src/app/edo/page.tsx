@@ -3,6 +3,7 @@
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, List, ListItem, ListIcon, Image } from '@chakra-ui/react';
 import { CheckCircleIcon, LockIcon, RepeatIcon, TimeIcon, ViewIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
+import HomeButton from '@/components/HomeButton';
 
 export default function EDOPage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -189,6 +190,7 @@ export default function EDOPage() {
           </Box>
         </VStack>
       </Container>
+      <HomeButton />
     </Box>
   );
 } 

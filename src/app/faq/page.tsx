@@ -17,13 +17,15 @@ import {
   ListItem,
   ListIcon,
   Button,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { CheckCircleIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import BackButton from '@/components/BackButton';
+import HomeButton from '@/components/HomeButton';
 
 export default function FAQPage() {
   return (
-    <Box bg="gray.50" minH="100vh" py={10}>
+    <Box bg={useColorModeValue('gray.50', 'gray.900')} minH="100vh" py={10}>
       <Container maxW="container.xl">
         <BackButton />
         
@@ -200,6 +202,7 @@ export default function FAQPage() {
           </Box>
         </VStack>
       </Container>
+      <HomeButton />
     </Box>
   );
 } 

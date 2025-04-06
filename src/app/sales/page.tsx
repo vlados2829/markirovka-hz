@@ -3,6 +3,7 @@
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, List, ListItem, ListIcon } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
+import HomeButton from '@/components/HomeButton';
 
 export default function SalesPage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -147,6 +148,7 @@ export default function SalesPage() {
           </Box>
         </VStack>
       </Container>
+      <HomeButton />
     </Box>
   );
 } 

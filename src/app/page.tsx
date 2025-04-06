@@ -4,6 +4,7 @@ import React from 'react';
 import { Box, Container, Heading, Text, Button, SimpleGrid, VStack, useColorModeValue, Image } from '@chakra-ui/react';
 import Link from 'next/link';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import HomeButton from '@/components/HomeButton';
 
 export default function HomePage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -124,6 +125,7 @@ export default function HomePage() {
           </Box>
         </Container>
       </Box>
+      <HomeButton />
     </Box>
   );
 } 

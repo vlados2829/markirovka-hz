@@ -27,6 +27,8 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import BackButton from '@/components/BackButton';
+import HomeButton from '@/components/HomeButton';
 
 export default function CalculatorPage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -206,6 +208,7 @@ export default function CalculatorPage() {
           </Box>
         </VStack>
       </Container>
+      <HomeButton />
     </Box>
   );
 } 
