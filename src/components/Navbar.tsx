@@ -44,12 +44,18 @@ import {
   useBreakpointValue,
   useDisclosure,
   Container,
+  HStack,
+  VStack,
+  Divider,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  PhoneIcon,
+  InfoIcon,
+  ExternalLinkIcon,
 } from '@chakra-ui/icons';
 import Link from 'next/link';
 
@@ -63,6 +69,7 @@ const Links = [
   { name: 'Доставка', href: '/delivery' },
   { name: 'ЭДО', href: '/edo' },
   { name: 'Создание маркировок', href: '/marking' },
+  { name: 'FAQ', href: '/faq' },
 ];
 
 // Используем React.memo для оптимизации ререндеров
@@ -88,6 +95,33 @@ export default function Navbar() {
 
   return (
     <Box>
+      <Box
+        bg={useColorModeValue('blue.500', 'blue.900')}
+        color="white"
+        py={2}
+        px={4}>
+        <Container maxW="container.xl">
+          <Flex justify="space-between" align="center">
+            <HStack spacing={4}>
+              <HStack>
+                <PhoneIcon />
+                <Text>+7 (927) 469-14-99</Text>
+              </HStack>
+              <Text>Гильманов Эмиль Рафаэлевич</Text>
+            </HStack>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              size="sm"
+              leftIcon={<ExternalLinkIcon />}
+              colorScheme="whiteAlpha">
+              Telegram
+            </Button>
+          </Flex>
+        </Container>
+      </Box>
+
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -140,19 +174,20 @@ export default function Navbar() {
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-            <Link href="/sales" passHref>
-              <Button
-                display={{ base: 'none', md: 'inline-flex' }}
-                fontSize={'sm'}
-                fontWeight={600}
-                color={'white'}
-                bg={'blue.500'}
-                _hover={{
-                  bg: 'blue.400',
-                }}>
-                Купить маркировки
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'blue.500'}
+              _hover={{
+                bg: 'blue.400',
+              }}>
+              Получить консультацию
+            </Button>
           </Stack>
         </Container>
       </Flex>
@@ -167,19 +202,20 @@ export default function Navbar() {
               <NavLink href={link.href}>{link.name}</NavLink>
             </Stack>
           ))}
-          <Link href="/sales" passHref>
-            <Button
-              w="full"
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'white'}
-              bg={'blue.500'}
-              _hover={{
-                bg: 'blue.400',
-              }}>
-              Купить маркировки
-            </Button>
-          </Link>
+          <Button
+            as="a"
+            href="https://t.me/gilman_188"
+            target="_blank"
+            w="full"
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'blue.500'}
+            _hover={{
+              bg: 'blue.400',
+            }}>
+            Получить консультацию
+          </Button>
         </Stack>
       </Collapse>
     </Box>
