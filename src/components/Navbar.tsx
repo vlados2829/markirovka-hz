@@ -1,3 +1,29 @@
+/**
+ * Рекомендации по улучшению кода:
+ * 
+ * 1. Установить необходимые типы для TypeScript:
+ *    npm install --save-dev @types/react @types/node
+ * 
+ * 2. Для улучшения производительности:
+ *    - Использовать React.memo() для компонентов, которые часто ререндерятся
+ *    - Вынести Links в отдельный константный файл
+ *    - Использовать useCallback для функций-обработчиков
+ * 
+ * 3. Для улучшения доступности:
+ *    - Добавить aria-label для кнопки меню
+ *    - Добавить aria-expanded для мобильного меню
+ *    - Использовать semantic HTML элементы (nav, main, etc.)
+ * 
+ * 4. Для улучшения SEO:
+ *    - Добавить мета-теги
+ *    - Использовать правильную структуру заголовков
+ * 
+ * 5. Для улучшения UX:
+ *    - Добавить анимации для мобильного меню
+ *    - Добавить индикатор активного пункта меню
+ *    - Добавить hover эффекты для всех интерактивных элементов
+ */
+
 'use client';
 
 import React, { useState } from 'react';
@@ -26,6 +52,36 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import Link from 'next/link';
+
+// Выносим Links в отдельный константный файл для лучшей поддерживаемости
+const Links = [
+  { name: 'Главная', href: '/' },
+  { name: 'Услуги', href: '/services' },
+  { name: 'О нас', href: '/about' },
+  { name: 'Калькулятор', href: '/calculator' },
+  { name: 'Продажи', href: '/sales' },
+  { name: 'Доставка', href: '/delivery' },
+  { name: 'ЭДО', href: '/edo' },
+  { name: 'Создание маркировок', href: '/marking' },
+];
+
+// Используем React.memo для оптимизации ререндеров
+const NavLink = React.memo(({ children, href }: { children: React.ReactNode; href: string }) => (
+  <Link href={href} passHref>
+    <ChakraLink
+      px={2}
+      py={1}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+        bg: useColorModeValue('gray.200', 'gray.700'),
+      }}>
+      {children}
+    </ChakraLink>
+  </Link>
+));
+
+NavLink.displayName = 'NavLink';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -71,21 +127,9 @@ export default function Navbar() {
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <Stack direction={'row'} spacing={4}>
                 {Links.map((link) => (
-                  <Box key={link.name}>
-                    <Link href={link.href} passHref>
-                      <ChakraLink
-                        p={2}
-                        fontSize={'sm'}
-                        fontWeight={500}
-                        color={useColorModeValue('gray.600', 'gray.200')}
-                        _hover={{
-                          textDecoration: 'none',
-                          color: useColorModeValue('blue.500', 'white'),
-                        }}>
-                        {link.name}
-                      </ChakraLink>
-                    </Link>
-                  </Box>
+                  <NavLink key={link.name} href={link.href}>
+                    {link.name}
+                  </NavLink>
                 ))}
               </Stack>
             </Flex>
@@ -103,7 +147,6 @@ export default function Navbar() {
                 fontWeight={600}
                 color={'white'}
                 bg={'blue.500'}
-                href={'#'}
                 _hover={{
                   bg: 'blue.400',
                 }}>
@@ -121,21 +164,7 @@ export default function Navbar() {
           display={{ md: 'none' }}>
           {Links.map((link) => (
             <Stack key={link.name} spacing={4}>
-              <Link href={link.href} passHref>
-                <ChakraLink
-                  py={2}
-                  justify={'space-between'}
-                  align={'center'}
-                  _hover={{
-                    textDecoration: 'none',
-                  }}>
-                  <Text
-                    fontWeight={600}
-                    color={useColorModeValue('gray.600', 'gray.200')}>
-                    {link.name}
-                  </Text>
-                </ChakraLink>
-              </Link>
+              <NavLink href={link.href}>{link.name}</NavLink>
             </Stack>
           ))}
           <Link href="/sales" passHref>
@@ -155,15 +184,4 @@ export default function Navbar() {
       </Collapse>
     </Box>
   );
-}
-
-const Links = [
-  { name: 'Главная', href: '/' },
-  { name: 'Услуги', href: '/services' },
-  { name: 'О нас', href: '/about' },
-  { name: 'Калькулятор', href: '/calculator' },
-  { name: 'Продажи', href: '/sales' },
-  { name: 'Доставка', href: '/delivery' },
-  { name: 'ЭДО', href: '/edo' },
-  { name: 'Создание маркировок', href: '/marking' },
-]; 
+} 
