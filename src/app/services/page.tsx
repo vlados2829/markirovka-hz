@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, Icon, List, ListItem, ListIcon } from '@chakra-ui/react';
-import { CheckCircleIcon, StarIcon, TimeIcon, LockIcon, RepeatIcon, InfoIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon, StarIcon, TimeIcon, LockIcon, RepeatIcon, InfoIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 export default function ServicesPage() {
@@ -133,11 +133,16 @@ export default function ServicesPage() {
             <Text color={textColor} mb={6}>
               Наши специалисты помогут вам выбрать наиболее подходящую услугу для вашего бизнеса
             </Text>
-            <Link href="/sales" passHref>
-              <Button colorScheme="blue" size="lg">
-                Получить консультацию
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              colorScheme="blue"
+              variant="outline"
+              width="100%"
+              leftIcon={<ExternalLinkIcon />}>
+              Получить консультацию
+            </Button>
           </Box>
         </VStack>
       </Container>

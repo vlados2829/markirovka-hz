@@ -26,6 +26,7 @@ import {
   AlertDescription,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 export default function CalculatorPage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -191,11 +192,16 @@ export default function CalculatorPage() {
                 </Box>
               </Alert>
 
-              <Link href="/sales" passHref>
-                <Button colorScheme="blue" variant="outline" width="100%">
-                  Получить консультацию
-                </Button>
-              </Link>
+              <Button
+                as="a"
+                href="https://t.me/gilman_188"
+                target="_blank"
+                colorScheme="blue"
+                variant="outline"
+                width="100%"
+                leftIcon={<ExternalLinkIcon />}>
+                Получить консультацию
+              </Button>
             </VStack>
           </Box>
         </VStack>

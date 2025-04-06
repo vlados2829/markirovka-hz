@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, Image, List, ListItem, ListIcon, Flex } from '@chakra-ui/react';
-import { CheckCircleIcon, StarIcon, TimeIcon, LockIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon, StarIcon, TimeIcon, LockIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -177,11 +177,16 @@ export default function AboutPage() {
             <Text fontSize="lg" mb={8} maxW="2xl" mx="auto">
               Свяжитесь с нами, чтобы узнать больше о наших услугах и получить персональное предложение
             </Text>
-            <Link href="/sales" passHref>
-              <Button size="lg" bg="white" color="blue.500" _hover={{ bg: 'gray.100' }}>
-                Связаться с нами
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              colorScheme="blue"
+              variant="outline"
+              size="lg"
+              leftIcon={<ExternalLinkIcon />}>
+              Получить консультацию
+            </Button>
           </Box>
         </VStack>
       </Container>

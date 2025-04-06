@@ -16,6 +16,7 @@ import {
   List,
   ListItem,
   ListIcon,
+  Button,
 } from '@chakra-ui/react';
 import { CheckCircleIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import BackButton from '@/components/BackButton';
@@ -184,6 +185,17 @@ export default function FAQPage() {
                   </AccordionItem>
                 </Accordion>
               </Box>
+
+              <Button
+                as="a"
+                href="https://t.me/gilman_188"
+                target="_blank"
+                colorScheme="blue"
+                variant="outline"
+                width="100%"
+                leftIcon={<ExternalLinkIcon />}>
+                Получить консультацию
+              </Button>
             </VStack>
           </Box>
         </VStack>
