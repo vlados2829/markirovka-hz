@@ -3,6 +3,7 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button, SimpleGrid, VStack, useColorModeValue, Image } from '@chakra-ui/react';
 import Link from 'next/link';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 export default function HomePage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -110,11 +111,16 @@ export default function HomePage() {
             <Text fontSize="lg" mb={8} maxW="2xl" mx="auto">
               Наши специалисты помогут вам настроить процесс создания и нанесения маркировок на товары
             </Text>
-            <Link href="/sales" passHref>
-              <Button size="lg" bg="white" color="blue.500" _hover={{ bg: 'gray.100' }}>
-                Получить консультацию
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              colorScheme="blue"
+              variant="outline"
+              size="lg"
+              leftIcon={<ExternalLinkIcon />}>
+              Получить консультацию
+            </Button>
           </Box>
         </Container>
       </Box>

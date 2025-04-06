@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, List, ListItem, ListIcon, Image } from '@chakra-ui/react';
-import { CheckCircleIcon, TimeIcon, StarIcon, RepeatIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon, TimeIcon, StarIcon, RepeatIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 export default function DeliveryPage() {
@@ -169,11 +169,16 @@ export default function DeliveryPage() {
             <Text color={textColor} mb={6}>
               Наши специалисты помогут вам выбрать оптимальный способ доставки маркировок
             </Text>
-            <Link href="/sales" passHref>
-              <Button colorScheme="blue" size="lg">
-                Связаться с нами
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              colorScheme="blue"
+              variant="outline"
+              size="lg"
+              leftIcon={<ExternalLinkIcon />}>
+              Получить консультацию
+            </Button>
           </Box>
         </VStack>
       </Container>

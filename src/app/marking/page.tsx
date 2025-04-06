@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, List, ListItem, ListIcon, Image, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
-import { CheckCircleIcon, InfoIcon, WarningIcon, StarIcon, RepeatIcon, TimeIcon, LockIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon, InfoIcon, WarningIcon, StarIcon, RepeatIcon, TimeIcon, LockIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 export default function MarkingPage() {
@@ -207,11 +207,16 @@ export default function MarkingPage() {
             <Text color={textColor} mb={6}>
               Наши специалисты помогут вам настроить процесс создания и нанесения маркировок на товары
             </Text>
-            <Link href="/sales" passHref>
-              <Button colorScheme="blue" size="lg">
-                Получить консультацию
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              colorScheme="blue"
+              variant="outline"
+              size="lg"
+              leftIcon={<ExternalLinkIcon />}>
+              Получить консультацию
+            </Button>
           </Box>
         </VStack>
       </Container>

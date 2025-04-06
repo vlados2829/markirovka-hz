@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, List, ListItem, ListIcon, Image } from '@chakra-ui/react';
-import { CheckCircleIcon, LockIcon, RepeatIcon, TimeIcon, ViewIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon, LockIcon, RepeatIcon, TimeIcon, ViewIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 export default function EDOPage() {
@@ -176,11 +176,16 @@ export default function EDOPage() {
             <Text color={textColor} mb={6}>
               Наши специалисты помогут вам настроить электронный документооборот для вашего бизнеса
             </Text>
-            <Link href="/sales" passHref>
-              <Button colorScheme="blue" size="lg">
-                Получить консультацию
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="https://t.me/gilman_188"
+              target="_blank"
+              colorScheme="blue"
+              variant="outline"
+              size="lg"
+              leftIcon={<ExternalLinkIcon />}>
+              Получить консультацию
+            </Button>
           </Box>
         </VStack>
       </Container>
