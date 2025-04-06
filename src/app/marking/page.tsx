@@ -1,7 +1,8 @@
 'use client';
 
+import React from 'react';
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Button, useColorModeValue, List, ListItem, ListIcon, Image, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
-import { CheckCircleIcon, InfoIcon, WarningIcon, StarIcon, RepeatIcon, TimeIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon, InfoIcon, WarningIcon, StarIcon, RepeatIcon, TimeIcon, LockIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 export default function MarkingPage() {
